@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+  }
+  .tab{
+    color: #fff;
+    margin-left: 150px;
+    margin-right: 1000px;
+    font-size: 25px;
+
+  }
+  .menu{
+    background-color: #004282;
+ 
+  }
+  .menu1{
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  .q {
+    color: #fff;
+    text-decoration: none;
+  }
+  img{
+    width: 170px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+
+.c-h {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+}
+.c {
+  background-color: #00418243;
+  border-radius:5px;
+  margin-left: 160px;
+  width: 1200px;
+  padding-bottom: 10px;
+}
+.title {
+  margin-left: 20px;
+  margin-right: 500px;
+  font-size: 25px;
+}
+.c-h-btn {
+  padding: 10px;
+  background-color: #004282;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.c-b {
+  width: 100%;
+}
+.c-card {
+  margin: 10px;
+  width: 300px;
+  border: 1px solid #110c0c68;
+  border-radius: 5px;
+}
+.c-card-body {
+  padding: 20px;
+}
+.c-card-title {
+  margin: 0;
+  font-size: 24px;
+}
+.c-card-text {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+.c-card-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.c-card-btn a {
+  padding: 10px 20px;
+  background-color: #004282;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.c-nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.field-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
