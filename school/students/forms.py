@@ -16,7 +16,7 @@ class CreateBirthForm(Form):
                                                                  'placeholder': 'Enter your place of birth'}))
     
 class CreateInfoForm(Form):
-    specialization = forms.CharField(required=True,
+    clas = forms.CharField(required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your first name'}))
     orga_of_education = forms.CharField(required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your first name'}))
@@ -26,9 +26,9 @@ class CreateInfoForm(Form):
                                                                  'placeholder': 'Enter your second name', 'type':'number'}))
     
 class CreateWorkForm(Form):
-    organization = forms.CharField(required=True,
+    street = forms.CharField(required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your organization '}))
-    address = forms.CharField(required=True,
+    area = forms.CharField(required=True,
                                widget=forms.TextInput(attrs={'class': 'form-control',
                                                                  'placeholder': 'Enter your place of birth'}))
     

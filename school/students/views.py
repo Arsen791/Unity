@@ -67,7 +67,7 @@ def user_info_create(request, pk):
         if request.method == 'POST':
             form = CreateInfoForm(request.POST)
             if form.is_valid():
-                specialization = form.data.get('specialization')
+                specialization = form.data.get('clas')
                 orga_of_education = form.data.get('orga_of_education')
                 year_of_graduation = form.data.get('year_of_graduation')
                 user_info = User_info(
@@ -131,8 +131,8 @@ def user_work_create(request, pk):
         if request.method == 'POST':
             form = CreateWorkForm(request.POST)
             if form.is_valid():
-                address = form.data.get('address')
-                organization = form.data.get('organization')
+                address = form.data.get('area')
+                organization = form.data.get('street')
                 user_work = User_work(address=address,organization=organization, id=user_name.id, user_name=user_name)
                 user_work.save()
                 return redirect('/students/' + str(user_name.id) + '/')
