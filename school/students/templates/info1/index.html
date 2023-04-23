@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+    <div class="menu"  >
+          <div class="menu1" >
+            <div class="tab">Таблица</div>
+                <div class="q">{{user.first_name}} {{user.last_name}}</div>
+                <div style="margin-left: 50px;"><a class="q" aria-current="page" href="/auth/logout">Logout</a></div>
+          </div>
+    </div>
+    <img src="static/img/1d122219a21ec914f0c77a0fb9b8946f.png" alt="">
+
+    <div class="c">
+      <div class="c-h">
+        <div class="title">
+          <h3>Мои таблицы</h3>
+        </div>
+        <a class="c-h-btn" href="/info1/create/">Создать новую таблицу</a>
+      </div>
+      <div class="c-b">
+        {% if user_names|length > 0 %}
+          {% for user_name in user_names %}
+            <div class="c-card">
+              <div class="c-card-body">
+                <h5 class="c-card-title">{{ user_name.firstname }}</h5>
+                <p class="c-card-text">{{ user_name.secondname }}</p>
+                <p class="c-card-text">{{ user_name.created_at }}</p>
+                <div class="c-card-btn">
+                  <a href="/info1/{{ user_name.id }}">Дополнить</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="c-nodata">
+            <h4>No blogs are created yet!</h4>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    
+<style>
+  body{
+    margin: 0;
+  }
+  .tab{
+    color: #fff;
+    margin-left: 150px;
+    margin-right: 1000px;
+    font-size: 25px;
+
+  }
+  .menu{
+    background-color: #004282;
+ 
+  }
+  .menu1{
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  .q {
+    color: #fff;
+    text-decoration: none;
+  }
+  img{
+    width: 170px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+
+.c-h {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+}
+.c {
+  background-color: #00418243;
+  border-radius:5px;
+  margin-left: 160px;
+  width: 1200px;
+  padding-bottom: 10px;
+}
+.title {
+  margin-left: 20px;
+  margin-right: 500px;
+  font-size: 25px;
+}
+.c-h-btn {
+  padding: 10px;
+  background-color: #004282;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.c-b {
+  width: 100%;
+}
+.c-card {
+  margin: 10px;
+  width: 300px;
+  border: 1px solid #110c0c68;
+  border-radius: 5px;
+}
+.c-card-body {
+  padding: 20px;
+}
+.c-card-title {
+  margin: 0;
+  font-size: 24px;
+}
+.c-card-text {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+.c-card-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.c-card-btn a {
+  padding: 10px 20px;
+  background-color: #004282;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.c-nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+  </style>
+</body>
+</html>
+
+
+
+
+
+
+

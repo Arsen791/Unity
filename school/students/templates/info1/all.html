@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>All Users</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Date of Birth</th>
+        <th>Specialization</th>
+        <th>Address</th>
+        <th>Experience</th>
+        <th>Criminal Record</th>
+        <th>Medicine Number</th>
+        <th>Master Degree</th>
+        <th>Doctor Profile</th>
+        <th>PhD Record</th>
+        <th>Docent or Professor</th>
+        <th>Sport Degree</th>
+        <th>Subject of Teaching</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user_name in user_names %}
+        <tr>
+          <td>{{ user_name.firstname }}  {{ user_name.secondname }}</td>
+          <td>
+            {% for user_birth in user_name.user_births.all %}
+                {{ user_birth.date_of_birth }} 
+                    {{ user_birth.place_of_birth }}
+
+            {% endfor %}
+            </td>
+          <td>
+            {% for user_info in user_name.user_infos.all %}
+               {{ user_info.specialization }}  {{ user_info.orga_of_education }}  {{ user_info.year_of_graduation }}  
+
+            {% endfor %}
+            </td>
+          <td>{{ user_name.user_works.address }}  {{ user_name.user_works.organization }}</td>
+          <td>{{ user_name.practices.experience }}</td>
+          <td>{{ user_name.criminals.criminal_record }}</td>
+          <td>{{ user_name.medicines.medicine_number }} {{ user_name.medicines.medicine_date }}</td>
+          <td>{{ user_name.masters.master_degree }}</td>
+          <td>{{ user_name.doctors.doctor_profile }}</td>
+          <td>{{ user_name.phdes.phd_record }}</td>
+          <td>{{ user_name.professors.docent_professor }}</td>
+          <td>{{ user_name.sports.sport_degree }}</td>
+          <td>{{ user_name.subjects.subject_of_teaching }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <button onclick="exportTableToCSV('users_table.csv')">Скачать в формате таблицы</button>
+
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 2400px;
+
+    }
+
+    thead {
+      background-color: #ccc;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      width: 200px;
+      height: 50px;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #7d7b7b;
+    }
+  </style>
+  <script>
+    function downloadCSV(csv, file) {
+  file = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  var url = window.URL.createObjectURL(file);
+  var downloadLink = document.createElement('a');
+  downloadLink.href = url;
+  downloadLink.download = file.name;
+  downloadLink.style.display = 'none';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  window.URL.revokeObjectURL(url);
+}
+
+function exportTableToCSV(file) {
+  var csv = [];
+  var rows = document.querySelectorAll('table tr');
+  for (var i = 0; i < rows.length; i++) {
+    var row = [];
+    var cols = rows[i].querySelectorAll('td, th');
+    for (var j = 0; j < cols.length; j++) {
+      row.push('"' + cols[j].innerText.replace(/"/g, '""') + '"');
+    }
+    csv.push(row.join(';'));
+  }
+  downloadCSV(csv.join('\n'), file);
+}
+
+  </script>
+{% endblock %}
